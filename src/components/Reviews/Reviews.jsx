@@ -6,17 +6,19 @@ export const Reviews = ({ reviews }) => {
 		<ul className={css.reviewsList}>
 			{reviews.map((review, index) => (
 				<li key={index}>
-					<div>
-						<span>{review.reviewer_name[0].toUpperCase()}</span>
-
-						<p>{review.reviewer_name}</p>
-
-						<p>{review.reviewer_rating}</p>
+					<div className={css.revNameStarWrapper}>
+						<span className={css.revNameInit}>
+							{review.reviewer_name[0].toUpperCase()}
+						</span>
+	
+						<div>
+							<p className={css.revName}>{review.reviewer_name}</p>
+	
+							<StarRating rating={review.reviewer_rating} />
+						</div>
 					</div>
-
-					<StarRating rating={review.reviewer_rating} />
-
-					<p>{review.comment}</p>
+	
+					<p className={css.revComment}>{review.comment}</p>
 				</li>
 			))}
 		</ul>

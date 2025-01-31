@@ -6,7 +6,6 @@
 	font-weight: 600;
 	font-size: 24px;
 	line-height: 133%;
-	color: var(--main-color);
 	margin-bottom: 8px;
 }
 
@@ -21,7 +20,6 @@
 	font-weight: 600;
 	font-size: 24px;
 	line-height: 133%;
-	color: var(--main-color);
 	margin-bottom: 28px;
 }
 
@@ -32,7 +30,6 @@
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 150%;
-	color: var(--main-color);
 	&:hover {
 		text-decoration: underline;
 	}
@@ -51,7 +48,6 @@
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 150%;
-	color: var(--main-color);
 }
 
 .locationIcon {
