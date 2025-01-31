@@ -1,5 +1,6 @@
 import css from "./TruckFeatures.module.css";
 import sprite from "../../images/sprite.svg";
+import { capitalizeFirstLetter } from "../../helpers";
 
 export const TruckFeatures = ({ truck }) => {
 	const features = [
@@ -72,13 +73,6 @@ export const TruckFeatures = ({ truck }) => {
 				<use href={`${sprite}#icon-water`} />
 			</svg>
 		),
-	};
-
-	const capitalizeFirstLetter = (string) => {
-		if (string.length === 2) {
-			return string.toUpperCase();
-		}
-		return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 	};
 
 	const actualFeatures = features.filter((feature) => truck[feature]);

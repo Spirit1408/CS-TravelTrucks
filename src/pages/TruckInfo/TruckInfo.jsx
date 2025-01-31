@@ -28,6 +28,19 @@ export default function TruckInfo() {
 		dispatch(getTruckById(id));
 	}, [dispatch, id]);
 
+	const scrollToReviews = (e) => {
+		e.preventDefault();
+
+		if (activeTab !== "reviews") {
+			setActiveTab("reviews");
+		}
+
+		const reviewsContainer = document.querySelector(`.${css.extraInfo}`);
+		if (reviewsContainer) {
+			reviewsContainer.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
 	if (isLoading) {
 		return <Loader />;
 	}
@@ -57,12 +70,17 @@ export default function TruckInfo() {
 			<h2 className={css.truckName}>{name}</h2>
 
 			<div className={css.infoWrapper}>
-				<a href="#" className={css.rating}>
+				<button
+					className={css.rating}
+					type="button"
+					href="#reviews"
+					onClick={scrollToReviews}
+				>
 					<svg className={css.ratingIcon}>
 						<use href={`${sprite}#icon-rating`} />
 					</svg>
 					{rating} ({reviews.length} Reviews)
-				</a>
+				</button>
 
 				<p className={css.location}>
 					<svg className={css.locationIcon}>
@@ -77,7 +95,12 @@ export default function TruckInfo() {
 			<ul className={css.gallery}>
 				{gallery.map((item, index) => (
 					<li key={index} className={css.galleryItem}>
-						<img className={css.galleryImage} src={item.thumb} alt={name} />
+						<img
+							className={css.galleryImage}
+							src={item.thumb}
+							alt={name}
+							loading="lazy"
+						/>
 					</li>
 				))}
 			</ul>
@@ -115,7 +138,7 @@ export default function TruckInfo() {
 						</div>
 					</div>
 				</div>
-				
+
 				<RentTruckForm truck={truck} />
 			</div>
 		</div>

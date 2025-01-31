@@ -23,14 +23,19 @@ export const TruckCard = ({ truck }) => {
 	return (
 		<div className={css.truckCard}>
 			<div className={css.imageWrapper}>
-				<img className={css.truckImage} src={gallery[0].thumb} alt={name} />
+				<img
+					className={css.truckImage}
+					src={gallery[0].thumb}
+					alt={name}
+					loading="lazy"
+				/>
 			</div>
 
 			<div className={css.descriptionWrapper}>
 				<div className={css.headerWrapper}>
 					<div className={css.namePriceWrapper}>
 						<h2 className={css.truckName}>{name}</h2>
-	
+
 						<div className={css.priceFavBtnWrapper}>
 							<p className={css.truckPrice}>€{price.toFixed(2)}</p>
 							<button
@@ -38,13 +43,15 @@ export const TruckCard = ({ truck }) => {
 								className={css.favButton}
 								onClick={handleFavoriteClick}
 							>
-								<svg className={`${css.favIcon} ${isFavorite ? css.marked : ""}`}>
+								<svg
+									className={`${css.favIcon} ${isFavorite ? css.marked : ""}`}
+								>
 									<use href={`${sprite}#icon-heart`} />
 								</svg>
 							</button>
 						</div>
 					</div>
-	
+
 					<div className={css.infoWrapper}>
 						<p className={css.rating}>
 							<svg className={css.ratingIcon}>
@@ -52,7 +59,7 @@ export const TruckCard = ({ truck }) => {
 							</svg>
 							{rating} ({reviews.length} Reviews)
 						</p>
-	
+
 						<p className={css.location}>
 							<svg className={css.locationIcon}>
 								<use href={`${sprite}#icon-map`} />

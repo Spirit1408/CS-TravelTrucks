@@ -1,6 +1,5 @@
 import css from "./TruckList.module.css";
 import {
-	selectError,
 	selectIsLoading,
 	selectTrucks,
 	selectPage,

@@ -53,15 +53,3 @@ ol {
 	list-style: none;
 	padding: 0;
 }
-
-.xtraButtonStyle {
-	border: none;
-	background-color: var(--button-color);
-	color: var(--white-color);
-	padding: 16px 48px;
-	border-radius: 200px;
-	transition: 250ms ease-in-out;
-	&:hover {
-		background-color: var(--button-hover-color);
-	}
-}
