@@ -1,0 +1,28 @@
+.trucksList {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	max-width: 888px;
+	margin-bottom: 40px;
+}
+
+.loadMoreBtn {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 150%;
+	letter-spacing: -0.01em;
+	color: var(--main);
+	border: 1px solid var(--grey-light-color);
+	border-radius: 200px;
+	padding: 16px 32px;
+	background-color: transparent;
+	margin: 0 auto;
+	transition: border-color 250ms ease-in-out;
+	&:hover {
+		border-color: var(--button-hover-color);
+	}
+}
+
+.loaderWrapper, .noTrucksMessage {
+	margin: 0 auto;
+}

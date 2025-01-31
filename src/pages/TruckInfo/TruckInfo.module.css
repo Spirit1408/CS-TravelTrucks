@@ -1,0 +1,48 @@
+.extraInfo {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.tabButtons {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+
+.tabButton {
+	padding: 8px 16px;
+	border: none;
+	background: none;
+	cursor: pointer;
+	font-size: 16px;
+	color: var(--text-color);
+	transition: color 0.3s ease;
+}
+
+.tabButton.active {
+	color: var(--button-hover-color);
+}
+
+.sliderContainer {
+	width: 50%;
+	overflow: hidden;
+	position: relative;
+}
+
+.sliderContent {
+	display: flex;
+	width: 200%;
+	transition: transform 0.3s ease;
+    
+}
+
+.slide {
+	width: 50%;
+	flex-shrink: 0;
+}
+
+.errorContainer {
+	margin-top: 20px;	
+	text-align: center;
+}

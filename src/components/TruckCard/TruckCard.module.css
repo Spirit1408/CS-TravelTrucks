@@ -1,0 +1,153 @@
+.truckCard {
+	display: flex;
+	gap: 24px;
+	padding: 24px;
+	border: 1px solid var(--grey-light-color);
+	border-radius: 20px;
+}
+
+.imageWrapper {
+	max-width: 292px;
+	max-height: 320px;
+	overflow: hidden;
+	border-radius: 10px;
+	flex-shrink: 0;
+}
+
+.truckImage {
+	height: 100%;
+	object-fit: cover;
+}
+
+.descriptionWrapper {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.headerWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.namePriceWrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.priceFavBtnWrapper {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.favButton {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	&:hover {
+		.favIcon {
+			fill: var(--button-hover-color);
+		}
+	}
+}
+
+.favIcon {
+	width: 20px;
+	height: 20px;
+	fill: var(--main-color);
+	cursor: pointer;
+	transition: fill 250ms ease-in-out;
+	&.marked {
+		fill: var(--button-hover-color);
+	}
+}
+
+.truckName {
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 133%;
+	color: var(--main-color);
+}
+
+.truckPrice {
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 133%;
+	color: var(--main-color);
+}
+
+.rating {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	color: var(--main-color);
+}
+
+.ratingIcon {
+	width: 16px;
+	height: 16px;
+	fill: var(--rating-color);
+}
+
+.infoWrapper {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+}
+
+.location {
+	display: flex;
+	gap: 4px;
+	align-items: center;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	color: var(--main-color);
+}
+
+.locationIcon {
+	width: 16px;
+	height: 16px;
+	fill: var(--main-color);
+}
+
+.description {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	color: var(--text-color);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%;
+}
+
+.link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 150%;
+	letter-spacing: -0.01em;
+	background-color: var(--button-color);
+	color: var(--white-color);
+	padding: 16px 40px;
+	border-radius: 200px;
+	transition: 250ms ease-in-out;
+	max-width: 166px;
+	&:hover {
+		background-color: var(--button-hover-color);
+	}
+}
