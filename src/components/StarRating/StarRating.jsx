@@ -1,4 +1,5 @@
 import css from './StarRating.module.css'
+import sprite from '../../images/sprite.svg'
 
 export const StarRating = ({ rating }) => {
 	return (
@@ -6,9 +7,11 @@ export const StarRating = ({ rating }) => {
 			{[...Array(5)].map((_, index) => (
 				<span
 					key={index}
-					className={`${css.star} ${index < rating ? css.filled : css.empty}`}
+					className={css.star}
 				>
-					★
+					<svg className={`${css.starIcon} ${index < rating ? css.filled : css.empty}`}>
+						<use href={`${sprite}#icon-rating`} />
+					</svg>
 				</span>
 			))}
 		</div>
