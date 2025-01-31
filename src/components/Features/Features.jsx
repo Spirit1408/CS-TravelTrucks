@@ -14,37 +14,39 @@ export const Features = ({ truck }) => {
 	};
 
 	return (
-		<div>
+		<div className={css.wrapper}>
 			<TruckFeatures truck={truck} />
 
-			<h3>Vehicle details</h3>
-
-			<ul>
-				<li>
-					<p>Form</p>
-					<p>{formatTruckForm(form)}</p>
-				</li>
-				<li>
-					<p>Length</p>
-					<p>{formatNumbers(length)} </p>
-				</li>
-				<li>
-					<p>Width</p>
-					<p>{formatNumbers(width)} </p>
-				</li>
-				<li>
-					<p>Height</p>
-					<p>{formatNumbers(height)} </p>
-				</li>
-				<li>
-					<p>Tank</p>
-					<p>{formatNumbers(tank)} </p>
-				</li>
-				<li>
-					<p>Consumption</p>
-					<p>{consumption} </p>
-				</li>
-			</ul>
-		</div>
+			<div>
+				<h3 className={css.title}>Vehicle details</h3>
+	
+				<ul className={css.details}>
+					<li className={css.detail}>
+						<p>Form</p>
+						<p>{formatTruckForm(form)}</p>
+					</li>
+					<li className={css.detail}>
+						<p>Length</p>
+						<p>{formatNumbers(length)} </p>
+					</li>
+					<li className={css.detail}>
+						<p>Width</p>
+						<p>{formatNumbers(width)} </p>
+					</li>
+					<li className={css.detail}>
+						<p>Height</p>
+						<p>{formatNumbers(height)} </p>
+					</li>
+					<li className={css.detail}>
+						<p>Tank</p>
+						<p>{formatNumbers(tank)} </p>
+					</li>
+					<li className={css.detail}>
+						<p>Consumption</p>
+						<p>{consumption} </p>
+					</li>
+				</ul>
+			</div>
+			</div>
 	);
 };

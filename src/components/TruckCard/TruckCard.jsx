@@ -3,6 +3,7 @@ import { TruckFeatures } from "../TruckFeatures/TruckFeatures";
 import css from "./TruckCard.module.css";
 import { addFavorite, removeFavorite } from "../../redux/favorites/slice";
 import sprite from "../../images/sprite.svg";
+import { swapCityCountry } from "../../helpers";
 
 export const TruckCard = ({ truck }) => {
 	const { id, name, gallery, reviews, description, location, price, rating } =
@@ -17,11 +18,6 @@ export const TruckCard = ({ truck }) => {
 		} else {
 			dispatch(addFavorite(id));
 		}
-	};
-
-	const swapCityCountry = (location) => {
-		const [country, city] = location.split(",");
-		return `${city}, ${country}`;
 	};
 
 	return (

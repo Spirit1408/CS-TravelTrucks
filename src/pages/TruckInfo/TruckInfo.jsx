@@ -12,6 +12,8 @@ import { getTruckById } from "../../redux/trucks/operations";
 import { Loader } from "../../components/Loader/Loader";
 import { Reviews } from "../../components/Reviews/Reviews";
 import { Features } from "../../components/Features/Features";
+import { swapCityCountry } from "../../helpers";
+import sprite from "../../images/sprite.svg";
 
 export default function TruckInfo() {
 	const { id } = useParams();
@@ -52,21 +54,35 @@ export default function TruckInfo() {
 
 	return (
 		<div className={css.wrapper}>
-			<h3>{name}</h3>
-			<p>
-				Rating: {rating} ({reviews.length} Reviews)
-			</p>
-			<p>Description: {description}</p>
-			<p>Location: {location}</p>
-			<p>Price: ${price.toFixed(2)}</p>
+			<h2 className={css.truckName}>{name}</h2>
 
-			<ul>
+			<div className={css.infoWrapper}>
+				<a href="#" className={css.rating}>
+					<svg className={css.ratingIcon}>
+						<use href={`${sprite}#icon-rating`} />
+					</svg>
+					{rating} ({reviews.length} Reviews)
+				</a>
+
+				<p className={css.location}>
+					<svg className={css.locationIcon}>
+						<use href={`${sprite}#icon-map`} />
+					</svg>{" "}
+					{swapCityCountry(location)}
+				</p>
+			</div>
+
+			<p className={css.truckPrice}>€{price.toFixed(2)}</p>
+
+			<ul className={css.gallery}>
 				{gallery.map((item, index) => (
-					<li key={index}>
-						<img src={item.thumb} alt={name} />
+					<li key={index} className={css.galleryItem}>
+						<img className={css.galleryImage} src={item.thumb} alt={name} />
 					</li>
 				))}
 			</ul>
+
+			<p className={css.description}>{description}</p>
 
 			<div className={css.tabButtons}>
 				<button
@@ -99,6 +115,7 @@ export default function TruckInfo() {
 						</div>
 					</div>
 				</div>
+				
 				<RentTruckForm truck={truck} />
 			</div>
 		</div>
