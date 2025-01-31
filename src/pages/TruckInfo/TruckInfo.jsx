@@ -10,7 +10,6 @@ import {
 import { useEffect, useState } from "react";
 import { getTruckById } from "../../redux/trucks/operations";
 import { Loader } from "../../components/Loader/Loader";
-import { toast } from "react-toastify";
 import { Reviews } from "../../components/Reviews/Reviews";
 import { Features } from "../../components/Features/Features";
 
@@ -27,11 +26,23 @@ export default function TruckInfo() {
 		dispatch(getTruckById(id));
 	}, [dispatch, id]);
 
-	if (error || !truck) {
+	if (isLoading) {
+		return <Loader />;
+	}
+
+	if (error) {
 		return (
 			<div className={css.errorContainer}>
 				<h3>Oops! Something went wrong</h3>
-				<p>{error || "Truck not found"}</p>
+				<p>{error}</p>
+			</div>
+		);
+	}
+
+	if (!truck) {
+		return (
+			<div className={css.errorContainer}>
+				<h3>Truck not found</h3>
 			</div>
 		);
 	}
@@ -39,9 +50,7 @@ export default function TruckInfo() {
 	const { name, reviews, description, location, price, gallery, rating } =
 		truck;
 
-	return isLoading ? (
-		<Loader />
-	) : (
+	return (
 		<div className={css.wrapper}>
 			<h3>{name}</h3>
 			<p>

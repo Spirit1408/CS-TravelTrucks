@@ -9,13 +9,27 @@ export const Header = () => {
 			</a>
 
 			<nav>
-				<ul className={css.nav}>	
+				<ul className={css.nav}>
 					<li>
-						<NavLink to="/" className={({ isActive }) => (isActive ? `${css.link} ${css.active}` : css.link)}>Home</NavLink>
+						<NavLink
+							to="/"
+							className={({ isActive }) =>
+								isActive ? `${css.link} ${css.active}` : css.link
+							}
+						>
+							Home
+						</NavLink>
 					</li>
-					
+
 					<li>
-						<NavLink to="/catalog" className={({ isActive }) => (isActive ? `${css.link} ${css.active}` : css.link)}>Catalog</NavLink>
+						<NavLink
+							to="/catalog"
+							className={({ isActive }) =>
+								isActive ? `${css.link} ${css.active}` : css.link
+							}
+						>
+							Catalog
+						</NavLink>
 					</li>
 				</ul>
 			</nav>

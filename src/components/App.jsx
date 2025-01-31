@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Header } from "./Header/Header";
 import { lazy, Suspense } from "react";
-import { Loader } from "./Loader/Loader.jsx";
 
 const Home = lazy(() => import("../pages/Home/Home.jsx"));
 const Catalog = lazy(() => import("../pages/Catalog/Catalog.jsx"));
@@ -13,7 +12,7 @@ const App = () => {
 		<>
 			<Header />
 
-			<Suspense fallback={<Loader />}>
+			<Suspense fallback={null}>
 				<main>
 					<Routes>
 						<Route path="/" element={<Home />} />
