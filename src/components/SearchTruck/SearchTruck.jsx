@@ -39,10 +39,12 @@ export const SearchTruck = () => {
 						value={filters.location}
 						onChange={(e) => dispatch(setLocation(e.target.value))}
 						className={css.input}
-						placeholder="Search by city name"
+						placeholder="City"
 					/>
 
-					<svg className={css.mapIcon}>
+					<svg
+						className={filters.location ? `${css.mapIcon} ${css.active}` : css.mapIcon}
+					>
 						<use href={`${sprite}#icon-map`}></use>
 					</svg>
 				</div>

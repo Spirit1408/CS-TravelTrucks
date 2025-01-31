@@ -14,6 +14,8 @@ import { Reviews } from "../../components/Reviews/Reviews";
 import { Features } from "../../components/Features/Features";
 import { swapCityCountry } from "../../helpers";
 import sprite from "../../images/sprite.svg";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 export default function TruckInfo() {
 	const { id } = useParams();
@@ -23,6 +25,8 @@ export default function TruckInfo() {
 	const error = useSelector(selectError);
 
 	const [activeTab, setActiveTab] = useState("features");
+	const [isOpen, setIsOpen] = useState(false);
+	const [photoIndex, setPhotoIndex] = useState(0);
 
 	useEffect(() => {
 		dispatch(getTruckById(id));
@@ -99,11 +103,24 @@ export default function TruckInfo() {
 							className={css.galleryImage}
 							src={item.thumb}
 							alt={name}
-							loading="lazy"
+							onClick={() => {
+								setPhotoIndex(index);
+								setIsOpen(true);
+							}}
 						/>
 					</li>
 				))}
 			</ul>
+
+			<Lightbox
+				open={isOpen}
+				close={() => setIsOpen(false)}
+				index={photoIndex}
+				slides={gallery.map((item) => ({ src: item.original }))}
+				on={{
+					view: ({ index }) => setPhotoIndex(index),
+				}}
+			/>
 
 			<p className={css.description}>{description}</p>
 

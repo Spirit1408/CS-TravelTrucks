@@ -69,6 +69,7 @@
 	height: 312px;
 	border-radius: 10px;
 	overflow: hidden;
+	cursor: pointer;
 }
 
 .galleryImage {
